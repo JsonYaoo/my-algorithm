@@ -1,3 +1,4 @@
 # my-algorithm
-my algorithm learning git
-To: The Sort, Sword finger offer
+Desc: my algorithm learning git
+From: Java
+Info: The Sort, Sword finger offer
