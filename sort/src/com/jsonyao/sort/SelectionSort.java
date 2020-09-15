@@ -1,7 +1,7 @@
 package com.jsonyao.sort;
 
 /**
- * From: Java Version 1.8
+ * On: Java Version 1.7
  * 选择排序概念:
  *      a. 选择排序是一种简单直观的排序算法, 经过不断选择小的数加入到排序序列中, 直到排序完毕
  */
