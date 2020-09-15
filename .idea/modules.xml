@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/my-algorithm.iml" filepath="$PROJECT_DIR$/.idea/my-algorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sort/sort.iml" filepath="$PROJECT_DIR$/sort/sort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swordFinger/swordFinger.iml" filepath="$PROJECT_DIR$/swordFinger/swordFinger.iml" />
+    </modules>
+  </component>
+</project>
