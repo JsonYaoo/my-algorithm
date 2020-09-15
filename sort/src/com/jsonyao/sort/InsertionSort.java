@@ -7,6 +7,9 @@ package com.jsonyao.sort;
  *      b. 插入排序是一种简单的排序方法, 通过构建有序序列, 对于未排序数据, 在已排序序列中从后向前扫描, 找到相应位置并插入
  *      c. 插入排序的工作方式像排序一手扑克牌. 开始时, 我们的左手为空并且桌子上的牌向下. 然后, 每次牌堆顶部拿走一张牌并将它插入左手中
  *         正确的位置. 这时, 为了找到一张牌的正确位置, 我们从右到左将它与已在手中的每张牌进行比较. 最后拿在左手上的牌总是牌总是排序号的
+ *  Relation:
+ *      a. https://www.cnblogs.com/onepixel/articles/7674659.html
+ *      b. https://baike.baidu.com/item/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/7214992?fr=aladdin
  */
 public class InsertionSort {
 
