@@ -7,7 +7,7 @@ package com.jsonyao.sort;
  *      b. 希尔排序与直接插入排序不同之处在于, 它会优先比较距离较远的元素, 是第一个突破O(n^2)的算法
  *      c. 希尔排序是把记录按照下标的一定增量分组, 对每组使用直接插入排序算法排序, 而随着增量逐渐减少, 每组包含的关键词越来越多,
  *         当增量减至1时,  整个数组恰好被分成1组, 而这时大部分数据已经是排好序的, 经过这一轮排序后, 算法便终止
- *  Relation：
+ * Relation：
  *      a. https://www.cnblogs.com/onepixel/articles/7674659.html
  *      b. https://baike.baidu.com/item/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/3229428?fr=aladdin
  */
