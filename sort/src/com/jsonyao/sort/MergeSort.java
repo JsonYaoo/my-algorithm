@@ -78,6 +78,19 @@ public class MergeSort {
         return result;
     }
 
+    public void betterMergeSort(){
+        /**
+         * A. 归并排序的优化
+         *      a. 改进归并能够排序在归并时先判断前段序列的最大值与后段序列的做小值的关系, 再确定是否进行赋值比较
+         *      b. 如果前段序列的最大值小于等于后段序列的最小值, 则说明序列可以直接形成一段有序序列不需要再归并, 反之则需要
+         *      c. 这种优化在序列本身有序的情况下时(最好的情况), 时间复杂度可以将至O(n)
+         *      d. TimSort可以说是归并排序的终极优化版本, 主要思想就是检测序列中的天然有序子段(若检测到严格降序子段则翻转序列为升序子段), 则在最好情况下无论是升序还是降序,
+         *         都可以使时间复杂度降至O(n), 具有很强的自适应性
+         * B. 核心思想:
+         *      a.
+         */
+    }
+
     public static void main(String[] args) {
         MergeSort mergeSort = new MergeSort();
 
