@@ -10,6 +10,7 @@ package com.jsonyao.sort;
  * Relation：
  *      a. https://www.cnblogs.com/onepixel/articles/7674659.html
  *      b. https://baike.baidu.com/item/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/3229428?fr=aladdin
+ *      c. https://zhuanlan.zhihu.com/p/31173825
  */
 public class ShellSort {
 
