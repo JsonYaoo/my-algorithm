@@ -14,7 +14,7 @@ package com.jsonyao.sort;
  */
 public class ShellSort {
 
-    private void shellSort(int[] arr){
+    public void shellSort(int[] arr){
         /**
          * A. 核心思想:
          *      a. 选择一个增量t1, t2, ..., tk, 其中ti > tj, tk = 1, 一般初次增量取序列的一半, 以后每次减半, 直到为1

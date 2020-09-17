@@ -7,7 +7,7 @@ package com.jsonyao.sort;
  */
 public class SelectionSort {
 
-    private void selectionSort(int[] arr){
+    public void selectionSort(int[] arr){
         /**
          * A. 核心思想:
          *      a. 首先在未排序序列中找到最小元素, 存放到排序序列的起始位置

@@ -9,7 +9,7 @@ package com.jsonyao.sort;
  */
 public class BubbleSort {
 
-    private void bubbleSort(int[] arr){
+    public void bubbleSort(int[] arr){
         /**
          * A. 核心思想:
          *      a. 比较相邻的元素。如果第一个比第二个大, 就交换他们两个。

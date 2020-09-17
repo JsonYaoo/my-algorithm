@@ -13,7 +13,7 @@ package com.jsonyao.sort;
  */
 public class InsertionSort {
 
-    private void insertionSort(int[] arr){
+    public void insertionSort(int[] arr){
         /**
          * A. 核心思想:
          *      a. 从第一个元素开始, 认为该元素p已经被排序
