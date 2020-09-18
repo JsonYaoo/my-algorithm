@@ -15,6 +15,11 @@ import java.util.Arrays;
  */
 public class MergeSort {
 
+    /**
+     * 归并排序-基础版
+     * @param arr   待排序数组
+     * @return
+     */
     public int[] mergeSort(int[] arr){
         /**
          * A. 核心思想:
@@ -44,6 +49,12 @@ public class MergeSort {
          * D. 算法分析:
          *      a. 归并排序的维持是要付出代价的, 代价就是需要额外的内存空间, 是个Out-Place添加了外址的排序
          *      b. 虽然归并排序比较占用内存, 但确实一种效率高且稳定的算法
+         * E. 优化方向:
+         *      a. 改进归并能够排序在归并时先判断前段序列的最大值与后段序列的做小值的关系, 再确定是否进行赋值比较
+         *      b. 如果前段序列的最大值小于等于后段序列的最小值, 则说明序列可以直接形成一段有序序列不需要再归并, 反之则需要
+         *      c. 这种优化在序列本身有序的情况下时(最好的情况), 时间复杂度可以将至O(n)
+         *      d. TimSort可以说是归并排序的终极优化版本, 主要思想就是检测序列中的天然有序子段(若检测到严格降序子段则翻转序列为升序子段), 则在最好情况下无论是升序还是降序,
+         *         都可以使时间复杂度降至O(n), 具有很强的自适应性
          */
         if(arr.length < 2){// 递归出口, 只有一个元素时, 表示分割到了最里面一层的子序列了, 这时需要返回做左右子序列合并操作了
             return arr;
@@ -56,6 +67,12 @@ public class MergeSort {
         return merge(mergeSort(leftArr), mergeSort(rightArr));// 对左右子序列递归做归并排序
     }
 
+    /**
+     * 归并排序合并逻辑-基础版
+     * @param leftArr   左子序列
+     * @param rightArr  右子序列
+     * @return
+     */
     private int[] merge(int[] leftArr, int[] rightArr){
         int[] result = new int[leftArr.length + rightArr.length];// 结果取两者长度之和
 
@@ -76,19 +93,6 @@ public class MergeSort {
         }
 
         return result;
-    }
-
-    public void betterMergeSort(){
-        /**
-         * A. 归并排序的优化
-         *      a. 改进归并能够排序在归并时先判断前段序列的最大值与后段序列的做小值的关系, 再确定是否进行赋值比较
-         *      b. 如果前段序列的最大值小于等于后段序列的最小值, 则说明序列可以直接形成一段有序序列不需要再归并, 反之则需要
-         *      c. 这种优化在序列本身有序的情况下时(最好的情况), 时间复杂度可以将至O(n)
-         *      d. TimSort可以说是归并排序的终极优化版本, 主要思想就是检测序列中的天然有序子段(若检测到严格降序子段则翻转序列为升序子段), 则在最好情况下无论是升序还是降序,
-         *         都可以使时间复杂度降至O(n), 具有很强的自适应性
-         * B. 核心思想:
-         *      a.
-         */
     }
 
     public static void main(String[] args) {
