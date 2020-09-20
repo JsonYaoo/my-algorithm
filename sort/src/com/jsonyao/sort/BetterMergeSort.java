@@ -73,7 +73,8 @@ public class BetterMergeSort {
      *          a. 由程序 baseSort可以看出, 时间复杂度通式仍然满足方程 f(n) = 2f(n/2) + n的
      *          b. 其中n代表待排序序列的长度, f(n)的时间复杂度代表序列归并的时间复杂度, n的复杂度代表合并的复杂度
      *          c. 因此同 MergeSort.mergeSort 推导, 故该程序的时间复杂度仍然是O(nlogn)
-     *
+     *      C. 稳定性:
+     *          a. 由于在合并时, 只是判断右边的大才取右边, 等于还是取了左边, 所以相等元素的相对顺序不会发生变化, 因此该程序时稳定的
      * @param arr    待排序序列
      * @param low    序列游标起始索引
      * @param high   序列游标结束索引
@@ -245,6 +246,8 @@ public class BetterMergeSort {
      *                 = -n^2/4 + n/2
      *                 = O(n^2)
      *          b. 时间复杂度增大, 故不推荐循环式归并写法
+     *      C. 稳定性:
+     *          a. 由于在合并时, 只是判断右边的大才取右边, 等于还是取了左边, 所以相等元素的相对顺序不会发生变化, 因此该程序时稳定的
      * @param arr   待排序序列
      */
     public void otherBetterSort(int[] arr){
