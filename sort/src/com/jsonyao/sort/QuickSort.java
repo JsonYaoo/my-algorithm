@@ -50,7 +50,7 @@ public class QuickSort {
         // 外部循环控制的是该数组快速排序的趟数
         while (i < j){
             // 内部循环控制的是一趟的快速排序: 交换一次(找到符合条件的值时)
-            while (i < j && arr[j] >= pivot) j--;// 等于pivot的元素默认为不处理
+            while (i < j && arr[j] >= pivot) j--;// 等于pivot的元素默认为不处理, 由于pivot选择了第1个元素, 必须先让j循环保证退出外循环时交换的是小于等于pivot的值
             while (i < j && arr[i] <= pivot) i++;// 等于pivot的元素默认为不处理
 
             // 避免i=j时白白浪费一次交换次数
@@ -61,7 +61,7 @@ public class QuickSort {
             }
         }
 
-        // 退出外部循环, 代表i与j重合了, 由于j循环写在了前面, 因此重合意味着arr[i]=arr[j]<=pivot, 所以交换j的值和pivot时没有问题的
+        // 退出外部循环, 代表i与j相遇了, 由于j循环写在了前面, 因此相遇意味着arr[i]=arr[j]<=pivot, 所以交换j的值和pivot时没有问题的
         arr[left] = arr[j];
         arr[j] = pivot;
 
@@ -121,7 +121,7 @@ public class QuickSort {
 //        // 外部循环控制的是该数组快速排序的趟数
 //        while (i < j) {
 //            // 内部循环控制的是一趟的快速排序: 交换一次 或者 不用交换
-//            while (i < j && arr[j] > pivot) j--;//
+//            while (i < j && arr[j] > pivot) j--;// 这里是可以互换j和i的循环次序的, 因为这种写法pivot是会被交换多次的, 不像第1种写法那样, 只在退出外循环时才交换1次
 //            while (i < j && arr[i] < pivot) i++;
 //            if (i < j) {
 //                // i和j未重合时
@@ -149,6 +149,27 @@ public class QuickSort {
 //
 //        // 经过递归左右排序后, 表示当前层数组已经排序完成
 //        return arr;
+    }
+
+    public int[] quickSort2(int[] arr, int left, int right){
+        /**
+         * 挖坑法:
+         * A. 基本思想:
+         *      a. 定义两个指针left指向起始位置, right指向最后一个元素的位置, 然后指定一个基数pivot作为坑(这里选取第1个元素即left的起始位置对应的值)
+         *      b. 然后right从后往前寻找比pivot小的元素, 然后把对应的值赋给left, 这时left坑被填补了, right处就产生了新坑
+         *      c. 同理left从前往后寻找比pivot大的元素, 然后把对应的值赋给right, 这时right坑被填补了, left处就产生了新坑
+         *      d. 循环b和c, 直到left和right指针相遇, 这时由于right循环写在了前面, 因此相遇意味着arr[right]=arr[left]<=pivot,
+         *         所以交换right的值和pivot时没有问题的, 故将pivot的值赋right指针, 填补最后的这个坑, 完成一趟快速排序
+         *      g. 经过n趟的快速排序：
+         *            1）左数组只存在一个元素或者没有元素时, 则左数组排序完成
+         *            2）右数组只存在一个元素或者没有元素时, 则右数组排序完成
+         *            3) 此时, 整个数组排序完成
+         */
+
+
+
+
+        return arr;
     }
 
     public static void main(String[] args) {
