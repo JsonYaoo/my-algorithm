@@ -43,7 +43,7 @@ public class InsertionSort {
             preIndex = i - 1;// 初始化为最后一个已排序元素r1
             compare = arr[i];// 拿出比较元素q
 
-            while (preIndex >= 0 && compare < arr[preIndex]){
+            while (preIndex >= 0 && arr[preIndex] > compare){
                 arr[preIndex+1] = arr[preIndex];// 把已排序元素r1覆盖到比较元素q的位置, 由于已经拿出比较元素q, 所以直接覆盖就行
                 preIndex--;// 复制完毕, 继续向前移动指针
 
