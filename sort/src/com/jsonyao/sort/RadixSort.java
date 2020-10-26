@@ -95,13 +95,84 @@ public class RadixSort {
         }
     }
 
+    public void radixSort2(int[] arr, int left, int right, double digital){
+        /**
+         * 基于MSD & 计数排序实现:
+         * A. 核心思想:
+         *      a. 最高位优先法通常是一个递归的过程
+         *      b. 先根据最高位关键码K1排序, 得到若干对象组, 对象组(每个桶)每个对象都有相同关键码K1
+         *      c. 再分别对每组(每个桶)中对象根据关键码K2进行排序, 按K2值的不同, 再分成若干个更小的子组, 每个子组的对象具有相同的K1和K2值
+         *      d. 依此反复递归...直到对关键码Kd完成排序为止
+         *      e. 最后把所有子组中的对象依次连接起来, 就得到一个有序的对象序列
+         */
+        int[] tempArr = new int[right-left+1];// 用于存储排好序的数组 -> 注意这里arr是长度不变的, 取值发生位移, 而tempArr长度是根据位移间的长度决定的
+        int[] counts = new int[10];// 基数桶
+
+        // 遍历数组设置桶内容
+        for(int i = left; i <= right; i++){
+            int countIndex = (arr[i] / (int) Math.pow(10d, digital-1)) % 10;
+            counts[countIndex]++;
+        }
+
+        // 遍历桶, 前者加后者得到正确排好序的数组索引
+        for(int i = 1; i < counts.length; i++){
+            counts[i] = counts[i-1] + counts[i];
+        }
+
+        // 后进先出, 反向遍历数组
+        for(int i = right; i >= left; i--){
+            int countIndex = (arr[i] / (int) Math.pow(10d, digital-1)) % 10;
+            tempArr[counts[countIndex]-1] = arr[i];
+            counts[countIndex]--;
+        }
+
+        // 深拷贝tempArr到arr
+        for(int i = 0; i < tempArr.length; i++){
+            arr[left+i] = tempArr[i];// arr设置值也应该用left加上位移偏量i, 实质上tempArr数组是arr的偏移数组
+        }
+
+        // 对每个桶内部进行递归计数排序 <= 反向遍历后的counts数组每个值, 代表下个新桶索引在正确开始数组中的开始下标
+        for(int i = 0; i < counts.length; i++){
+            int newLeft = left + counts[i];// 当前digital数值为i的桶顶索引(桶中开头的元素), left+counts[i]代表获取
+            int newRight;// 当前digital数组为i的桶底索引(桶中最后一个元素)
+
+            if(i < counts.length-1){
+                newRight = left + counts[i+1] - 1;
+            }else {
+                newRight = right;
+            }
+
+            // 位数-1, 再次对桶中元素进行计数递归
+            if(newLeft < newRight && digital > 1){
+                radixSort2(arr, newLeft, newRight, digital-1);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int[] arr = {
-                9, 8, 10, 4, 7, 2, 5, 5, 1
+                19, 8, 102, 34, 72, 2011, 5, 35, 1, 34
         };
 
         RadixSort radixSort = new RadixSort();
-        radixSort.radixSort(arr);
+        // LSD
+//        radixSort.radixSort(arr);
+
+        // 求最大值
+        int max = 0;
+        for(int i = 0; i < arr.length; i++){
+            max = arr[i] > max? arr[i] : max;
+        }
+
+        // 求最大位数
+        int digitalMax = 1;
+        while (max >= 10){
+            max /= 10;
+            digitalMax++;
+        }
+
+        // MSD
+        radixSort.radixSort2(arr, 0, arr.length-1, digitalMax);
 
         for(int i = 0; i < arr.length; i++){
             System.out.println(arr[i]);
