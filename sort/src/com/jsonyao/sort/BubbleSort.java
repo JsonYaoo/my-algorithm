@@ -4,8 +4,9 @@ package com.jsonyao.sort;
  * On: Java Version: 1.7
  * 冒泡排序算法概念:
  *      a. 由于经过该算法, 越小的元素会经由交换慢慢浮到数列的顶端, 就如同碳酸饮料中二氧化碳的气泡最终会上浮到顶端一样, 故名冒泡排序
- *      b. eg => https://baike.baidu.com/item/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/4602306?fr=aladdin
- *      c. eg => https://www.jianshu.com/p/1458abf81adf
+ * Relation:
+ *      a. https://baike.baidu.com/item/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/4602306?fr=aladdin
+ *      b. https://www.jianshu.com/p/1458abf81adf
  */
 public class BubbleSort {
 
@@ -54,7 +55,7 @@ public class BubbleSort {
                     swapFlag = true;
                 }
             }
-            if(!swapFlag) break;// 如果
+            if(!swapFlag) break;// 如果该趟j排序没有元素发生过交换说明已经有序, 那么不用再进行下一趟i排序了
         }
     }
 
